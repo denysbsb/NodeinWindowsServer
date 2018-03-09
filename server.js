@@ -1,6 +1,11 @@
 var express = require('express');
 const path = require('path');
 var app = express();
+var cors = require('cors');
+app.use(cors());
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 var rp = require('request-promise');
 
