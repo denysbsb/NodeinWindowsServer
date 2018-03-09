@@ -636,7 +636,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var LoginComponent = /** @class */ (function () {
     function LoginComponent(router) {
         this.router = router;
-        var urlAtuh = 'https://homolog.sgi.sebrae.com.br/OAuth_Authorization/OAuth/Authorize?client_id=65&secret_key=vQwAtkQmMl7F-RhsWhRf&public_key=L8bim4IOM6fvJRbmG2oV&response_type=code&redirect_uri=http://localhost:4200/home';
+        var urlAtuh = 'https://homolog.sgi.sebrae.com.br/OAuth_Authorization/OAuth/Authorize?client_id=65&secret_key=vQwAtkQmMl7F-RhsWhRf&public_key=L8bim4IOM6fvJRbmG2oV&response_type=code&redirect_uri=http://dashboard.workplace.sebrae.com.br/home';
         window.location.href = urlAtuh;
     }
     LoginComponent.prototype.login = function () {
@@ -1125,7 +1125,7 @@ var AuthService = /** @class */ (function () {
         var url = 'https://homolog.sgi.sebrae.com.br/OAuth_Authorization/OAuth/Token';
         //let url = 'http://localhost:8080/testepost';
         var body = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["d" /* HttpParams */]()
-            .set("redirect_uri", 'http://localhost:4200/home')
+            .set("redirect_uri", 'http://dashboard.workplace.sebrae.com.br/home')
             .set("grant_type", 'authorization_code')
             .set("code", code)
             .set("client_id", '65')
