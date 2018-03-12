@@ -1,0 +1,4 @@
+Running Angular
+getTOKEN-- undefined
+getRedirect-- undefined
+err--
