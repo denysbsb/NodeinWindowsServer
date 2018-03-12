@@ -10,7 +10,9 @@
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@angular/cli": "^1.7.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
