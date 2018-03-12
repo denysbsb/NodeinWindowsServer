@@ -5,17 +5,22 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 export class AuthService {
   constructor(public http: HttpClient){}
+
   getToken(code): Promise<any> {
-    let url = 'http://dashboard.workplace.sebrae.com.br/auth?code='+code;
+    const httpOptions = {
+      headers: new HttpHeaders({
+      'Authorization': 'Bearer ',
+      })
+    };
 
     return new Promise((resolve, reject) => {
-      this.http.get(url).subscribe(data => {
+      let url = 'http://api.workplace.sebrae.com.br:81/auth?code='+code;
+      this.http.get(url, httpOptions).subscribe(data => {
         resolve(data);
       }, error => {
-          reject(error);
+        reject(error);
       });
     });
-  
   }
 
   getMe(token): Promise<any> {
@@ -33,4 +38,5 @@ export class AuthService {
       });
     });
   }
+
 }

@@ -16,15 +16,11 @@ export class HomeComponent {
     //     this.gruposService.setGroups();
      }
      ngOnInit() {
+        var code = this.route.snapshot.queryParams["code"];
+        alert(code);
 
-         var code = this.route.snapshot.queryParams["code"];
-         alert(code);
-
-         this.authService.getToken(code).then((data)=>{
-           this.authService.getMe(data.access_token).then(res=>{
-           });
-         }); 
-
-        
+        this.authService.getToken(code).then((data)=>{
+            this.authService.getMe(data.access_token).then(res=>{ });
+        });
      }
 }
