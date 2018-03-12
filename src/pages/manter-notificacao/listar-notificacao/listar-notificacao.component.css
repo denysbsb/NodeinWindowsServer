@@ -1,0 +1,27 @@
+.button-row {
+    display: flex;
+    align-items: center;
+}
+.lista-container{
+    overflow-x: auto;
+}
+.lista-container > *{
+    min-width: 845px;
+}
+
+.coluna-tipo{
+    max-width: 80px;
+}
+.coluna-dataEnvio{
+    max-width: 100px;
+}
+.coluna-status{
+    max-width: 100px;
+}
+.coluna-acoes{
+    text-align: center;
+    max-width: 172px;
+}
+.coluna-email{
+    max-width: 200px;    
+}

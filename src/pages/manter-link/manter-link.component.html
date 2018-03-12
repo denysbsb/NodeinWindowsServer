@@ -1,0 +1,14 @@
+<div class="titulo">Consultar Usuários</div>
+<div class="pesquisa-form">
+    <mat-form-field class="sm-full-width">
+        <input matInput placeholder="Nome do Link">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="pesquisarLink()">Pesquisar</button>
+</div>
+<mat-divider></mat-divider>
+<div class="button-row">
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" [routerLink]="'add'" >Adicionar Link</button>
+</div>
+
+<listar-link [dados]="listaLinks"></listar-link>

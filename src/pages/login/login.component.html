@@ -1,0 +1,21 @@
+<div style="float:left; width:100%; height: 130px;">
+</div>
+
+<div style="width:32%; margin: 0 auto;">
+
+
+
+<mat-card style="height: 400px;">
+        <mat-toolbar>Login Workplace Admin</mat-toolbar>
+
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Usuário" value=""  name="first" [(ngModel)]="username" required>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Senha" value="" [(ngModel)]="password"  name="last">
+                </mat-form-field>
+                <button mat-raised-button color="primary">Logar</button>
+              </form>
+</mat-card>
+</div>

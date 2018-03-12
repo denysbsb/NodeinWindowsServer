@@ -1,0 +1,17 @@
+<div class="titulo">Consultar Usuários</div>
+<div class="pesquisa-form">
+    <mat-form-field class="sm-full-width">
+        <input matInput placeholder="Nome de usuário">
+    </mat-form-field>
+    <mat-form-field class="sm-full-width">
+        <input matInput type="text" placeholder="CPF" inputmode="numeric">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="pesquisarUsuario()">Pesquisar</button>
+</div>
+<mat-divider></mat-divider>
+<div class="button-row">
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" [routerLink]="'add'" >Adicionar Usuário</button>
+</div>
+
+<listar-usuario [dados]="listaUsuarios"></listar-usuario>

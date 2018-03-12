@@ -1,0 +1,19 @@
+.detalhe-table th, .detalhe-table td {
+    padding: 5px 10px;
+    border-bottom: 1px solid lightgray;
+    min-height: 20px;
+}
+.detalhe-table  th{
+    padding-bottom:15px ;
+}
+.detalhe-table tr {
+    height: 40px;
+}
+.detalhe-table{
+    margin-bottom: 10px; 
+}
+.detalhe-table th {
+    color: gray;
+
+    font-weight: 300;
+}

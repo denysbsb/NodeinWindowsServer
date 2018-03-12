@@ -1,0 +1,58 @@
+<div class="lista-container">
+  <mat-table class="mat-elevation-z10" #table [dataSource]="dados" matSort>
+    <!-- Coluna do Destinatário -->
+    <ng-container matColumnDef="destinatarios">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Destinatários </mat-header-cell>
+      <mat-cell *matCellDef="let linha"> {{linha.destinatarios}} </mat-cell>
+    </ng-container>
+
+    <!-- Coluna do Tipo -->
+    <ng-container matColumnDef="tipo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="coluna-tipo"> Tipo </mat-header-cell>
+      <mat-cell *matCellDef="let linha" class="coluna-tipo"> {{linha.tipo}} </mat-cell>
+    </ng-container>
+
+    <!-- Coluna da Notificação -->
+    <ng-container matColumnDef="notificacao">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Notificação </mat-header-cell>
+      <mat-cell *matCellDef="let linha"> {{linha.notificacao}} </mat-cell>
+    </ng-container>
+
+    <!-- Coluna do Status -->
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="coluna-status"> Status </mat-header-cell>
+      <mat-cell *matCellDef="let linha" class="coluna-status"> {{linha.status}} </mat-cell>
+    </ng-container>
+
+    <!-- Coluna da Data de Envio -->
+    <ng-container matColumnDef="dataEnvio">
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="coluna-dataEnvio"> Data de Envio </mat-header-cell>
+      <mat-cell *matCellDef="let linha" class="coluna-dataEnvio"> {{linha.dataEnvio | date:'dd/MM/yyyy'}} </mat-cell>
+    </ng-container>
+
+    <!-- Coluna das Ações -->
+    <ng-container matColumnDef="acoes">
+      <mat-header-cell *matHeaderCellDef class="coluna-acoes"> Ações </mat-header-cell>
+      <mat-cell *matCellDef="let linha" class="coluna-acoes">
+        <button mat-icon-button *ngIf="linha.acoes.enviar">
+          <mat-icon aria-label="Enviar" matTooltip="Enviar" (click)="enviarNotificacao(linha.id)" color="primary">send</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="linha.acoes.editar">
+          <mat-icon aria-label="Editar" matTooltip="Editar" [routerLink]="linha.id" color="primary">edit</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="linha.acoes.visualizar">
+          <mat-icon aria-label="Visualizar" matTooltip="Visualizar" color="primary">search</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="linha.acoes.excluir">
+          <mat-icon aria-label="Excluir" matTooltip="Excluir" (click)="excluirNotificacao(linha.id)" color="warn">clear</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="titulos"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: titulos;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>

@@ -1,0 +1,31 @@
+.title {
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.example-icon {
+    padding: 0 0px;
+}
+.logo{
+    cursor: pointer;
+}
+.logo:focus{
+    outline: none;
+}
+
+.extra-toolbar{
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.navBar{
+    overflow-x: auto;
+}
+.navBar >* {
+    min-width: 410px;
+}

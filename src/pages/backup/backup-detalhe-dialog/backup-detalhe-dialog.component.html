@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Detalhes</h1>
+<div mat-dialog-content>
+    <table class="detalhe-table">
+      <thead>
+        <th>Tabela</th>
+        <th>Tempo em Execução</th>
+        <th>Mensagem de Erro</th>
+      </thead>
+      <tr *ngFor="let detalhe of data">
+        <td>{{detalhe.tabela}}</td>
+        <td>{{detalhe.tempoExecucao}}s</td>
+        <td>{{detalhe.mensagemErro}}</td>
+      </tr>
+    </table>
+</div>
+<div mat-dialog-actions>
+  <span class="spacer"></span>
+  <button mat-button mat-dialog-close>Fechar</button>
+</div>

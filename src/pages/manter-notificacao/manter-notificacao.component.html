@@ -1,0 +1,37 @@
+<div class="titulo">Consultar Notificações</div>
+<div class="pesquisa-form">
+    <form>
+        <mat-form-field class="sm-full-width">
+            <input matInput placeholder="Palavra Chave" [(ngModel)]="filtroPesquisa.palavraChave" name="palavraChave">
+        </mat-form-field>
+        <mat-form-field class="sm-full-width">
+            <input matInput [matDatepicker]="picker" placeholder="Data inicial" [(ngModel)]="filtroPesquisa.dataInicial" name="dataInicial">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="sm-half-width">
+            <mat-select placeholder="Tipo" [(ngModel)]="filtroPesquisa.tipo" name="tipo">
+                <mat-option> <u>Deselecionar</u> </mat-option>
+                <mat-option *ngFor="let tipo of tiposNotificacao" [value]="tipo.key">
+                    {{ tipo.value }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="sm-half-width">
+            <mat-select placeholder="Status" [(ngModel)]="filtroPesquisa.status" name="status">
+                <mat-option> <u>Deselecionar</u> </mat-option>
+                <mat-option *ngFor="let status of statusNotificacao" [value]="status.key">
+                    {{ status.value }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" (click)="pesquisarNotificacao()">Pesquisar</button>
+</div>
+<mat-divider></mat-divider>
+<div class="button-row">
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" [routerLink]="'add'">Adicionar Notificação</button>
+</div>
+
+<listar-notificacao [dados]="listaNotificacoes"></listar-notificacao>

@@ -1,0 +1,55 @@
+<div class="lista-container">
+  <mat-table class="mat-elevation-z10" #table [dataSource]="dados" matSort>
+    <!-- Coluna da Nome -->
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
+      <mat-cell *matCellDef="let linha"> {{linha.nome}} </mat-cell>
+    </ng-container>
+
+    <!-- Coluna do Email -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </mat-header-cell>
+      <mat-cell *matCellDef="let linha"> {{linha.email}} </mat-cell>
+    </ng-container>
+
+    <!-- Coluna do CPF -->
+    <ng-container matColumnDef="cpf">
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="coluna-cpf"> CPF </mat-header-cell>
+      <mat-cell *matCellDef="let linha" class="coluna-cpf"> {{linha.cpf | cpf}} </mat-cell>
+    </ng-container>
+
+    <!-- Coluna do Unidade -->
+    <ng-container matColumnDef="unidade">
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="coluna-unidade"> Unidade </mat-header-cell>
+      <mat-cell *matCellDef="let linha" class="coluna-unidade"> {{linha.unidade}} </mat-cell>
+    </ng-container>
+
+    <!-- Coluna do Perfil -->
+    <ng-container matColumnDef="perfil">
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="coluna-perfil"> Perfil </mat-header-cell>
+      <mat-cell *matCellDef="let linha" class="coluna-perfil"> {{linha.perfil}} </mat-cell>
+    </ng-container>
+
+    <!-- Coluna das Ações -->
+    <ng-container matColumnDef="acoes">
+      <mat-header-cell *matHeaderCellDef class="coluna-acoes"> Ações </mat-header-cell>
+      <mat-cell *matCellDef="let linha" class="coluna-acoes">
+        <button mat-icon-button *ngIf="linha.acoes.editar">
+          <mat-icon aria-label="Editar" matTooltip="Editar"  [routerLink]="linha.id" color="primary">edit</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="linha.acoes.visualizar">
+          <mat-icon aria-label="Visualizar" matTooltip="Visualizar" color="primary">search</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="linha.acoes.excluir">
+          <mat-icon aria-label="Excluir" matTooltip="Excluir" (click)="excluirUsuario(linha.id)" color="warn">clear</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="titulos"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: titulos;"></mat-row>
+
+  </mat-table>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>

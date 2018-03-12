@@ -1,0 +1,41 @@
+<mat-toolbar>
+    <span>Backup</span>
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary">Realizar Backup</button>
+</mat-toolbar>
+<div class="log-container">
+    <div class="log-titulo"> Log do Sistema </div>
+    <mat-table class="mat-elevation-z8" #table [dataSource]="dados" matSort>
+        <!-- Coluna da Data -->
+        <ng-container matColumnDef="data">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Data </mat-header-cell>
+            <mat-cell *matCellDef="let linha"> {{linha.data | date:'dd/MM/yyyy hh:mm:ss'}} </mat-cell>
+        </ng-container>
+
+        <!-- Coluna do Autor -->
+        <ng-container matColumnDef="autor">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Autor </mat-header-cell>
+            <mat-cell *matCellDef="let linha"> {{linha.autor}} </mat-cell>
+        </ng-container>
+
+        <!-- Coluna do Status -->
+        <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+            <mat-cell *matCellDef="let linha"> {{linha.status}} </mat-cell>
+        </ng-container>
+
+        <!-- Coluna das Ações -->
+        <ng-container matColumnDef="acoes">
+            <mat-header-cell *matHeaderCellDef class="coluna-acoes"> Ações </mat-header-cell>
+            <mat-cell *matCellDef="let linha"  class="coluna-acoes">
+                <button mat-button *ngIf="linha.acoes.detalhar" color="primary" (click)="abrirDetalhes(linha.id)">Detalhar</button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="titulos"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: titulos;"></mat-row>
+
+    </mat-table>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+    </mat-paginator>
+</div>
