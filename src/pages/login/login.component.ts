@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 export class LoginComponent {
     constructor (private router: Router) {
-        var urlAtuh = 'https://homolog.sgi.sebrae.com.br/OAuth_Authorization/OAuth/Authorize?client_id=65&secret_key=vQwAtkQmMl7F-RhsWhRf&public_key=L8bim4IOM6fvJRbmG2oV&response_type=code&redirect_uri=http://localhost:4200/home';
+        var urlAtuh = 'https://homolog.sgi.sebrae.com.br/OAuth_Authorization/OAuth/Authorize?client_id=65&secret_key=vQwAtkQmMl7F-RhsWhRf&public_key=L8bim4IOM6fvJRbmG2oV&response_type=code&redirect_uri=http://dashboard.workplace.sebrae.com.br/home';
         window.location.href=urlAtuh;
     }
 }
