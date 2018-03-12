@@ -32,11 +32,6 @@ const Auth = {
            // console.log('err get--',err);
             res.json({nome:'err World!'})
         });
-    },
-
-    testeget(req, res) {
-        console.log('testeeeee get');
-         res.json({name:'denys'});
     }
 }
 
